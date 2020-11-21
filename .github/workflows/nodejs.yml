@@ -1,4 +1,4 @@
-name: Node.js Package
+name: Node.js
 
 on: [push]
 #   pull_request:
@@ -9,7 +9,7 @@ on: [push]
 #       - master
 
 jobs:
-  build:
+  nodejs:
     name: Node.js ${{ matrix.node_version }}
     runs-on: ubuntu-latest
     strategy:
