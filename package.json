@@ -1,0 +1,31 @@
+{
+  "name": "wp-classic-to-blocks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "wp-classic-to-blocks": "cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\"",
+    "lint": "standard"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wordpress/block-library": "^2.26.4",
+    "@wordpress/blocks": "^6.24.1",
+    "ansi-colors": "^4.1.1",
+    "browser-env": "^3.3.0",
+    "enquirer": "^2.3.6",
+    "got": "^11.8.0",
+    "knex": "^0.21.12",
+    "mysql2": "^2.2.5",
+    "polyfill-library": "^3.97.0",
+    "progress": "^2.0.3",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "standard": "^16.0.3"
+  }
+}
