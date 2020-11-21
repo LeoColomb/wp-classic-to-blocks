@@ -30,7 +30,7 @@ important than database sanity), please have a look at the
 * Download [latest binary](releases/latest)
   * Docker image is also available
     ```shell
-    docker run ghcr.io/LeoColomb/wp-classic-to-blocks
+    docker run ghcr.io/leocolomb/wp-classic-to-blocks
     ```
   * NPM package is also available
     ```shell
