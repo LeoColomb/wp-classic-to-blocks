@@ -8,7 +8,7 @@ exports.registerDatabase = async ({ host, database, user, password, prefix }) =>
       database,
       user,
       password
-    },
+    }
   })
     .from(`${prefix}posts`)
 
@@ -22,7 +22,7 @@ exports.registerDatabase = async ({ host, database, user, password, prefix }) =>
     .orderBy('ID')
     .limit(10)
 
-  let count = undefined
+  let count
   try {
     count = await query.clone().count()
     count = count[0]['count(*)']

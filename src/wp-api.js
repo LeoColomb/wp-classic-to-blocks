@@ -2,13 +2,13 @@ const got = require('got')
 
 exports.registerWordPressAPI = async ({ baseUrl, username, password, ip = null, insecure = false }) => {
   if (insecure) {
-    process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0"
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
   }
 
-  let options = {}
+  const options = {}
   if (ip) {
     // TODO: improve direct resolution handler
-    options.lookup = (hostname, options, callback) => (callback ? callback : options)(null, ip, 4)
+    options.lookup = (hostname, options, callback) => (callback || options)(null, ip, 4)
   }
 
   const api = got.extend({
