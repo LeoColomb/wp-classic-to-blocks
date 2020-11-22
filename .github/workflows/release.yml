@@ -37,7 +37,7 @@ jobs:
           push: true
 
   npm:
-    needs: build
+    name: npm package
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.4
@@ -48,3 +48,14 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+#  binaries:
+#    name: Binaries
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2.3.4
+#      - uses: actions/setup-node@v2.1.2
+#        with:
+#          version: 14
+#      - run: npm install
+#      - run: npx pkg .
