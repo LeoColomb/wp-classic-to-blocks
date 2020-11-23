@@ -33,7 +33,7 @@ jobs:
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
           tags: |
             ghcr.io/${{ secrets.DOCKER_IMAGE }}:latest
-            ghcr.io/${{ secrets.DOCKER_IMAGE }}:${{ github.ref }}
+#            ghcr.io/${{ secrets.DOCKER_IMAGE }}:${{ github.ref }}
           push: true
 
   npm:
