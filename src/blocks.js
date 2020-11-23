@@ -19,7 +19,7 @@ exports.registerBlocksHandler = async () => {
   registerCoreBlocks()
 
   const handler = async (renderedContent) => {
-    serialize(rawHandler({
+    return serialize(rawHandler({
       HTML: renderedContent
     }))
   }

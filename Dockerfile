@@ -5,9 +5,9 @@ WORKDIR /opt/project
 COPY package.json .
 COPY package-lock.json .
 
-RUN npm i
+RUN npm install --production
 
-COPY src .
+COPY src src
 COPY index.js .
 COPY cli.js .
 

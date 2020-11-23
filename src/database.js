@@ -1,14 +1,9 @@
 const knex = require('knex')
 
-exports.registerDatabase = async ({ host, database, user, password, prefix }) => {
+exports.registerDatabase = async (connection, { prefix = 'wp_' }) => {
   const db = knex({
     client: 'mysql2',
-    connection: {
-      host,
-      database,
-      user,
-      password
-    }
+    connection
   })
     .from(`${prefix}posts`)
 
@@ -27,7 +22,7 @@ exports.registerDatabase = async ({ host, database, user, password, prefix }) =>
     count = await query.clone().count()
     count = count[0]['count(*)']
   } catch (e) {
-    console.error(e)
+    // console.error(e)
     throw new Error('Unable to find post rows in database. Please check your credentials.')
   }
 

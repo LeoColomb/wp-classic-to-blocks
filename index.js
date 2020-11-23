@@ -1,13 +1,12 @@
 /**
+ * WordPress Classic to Blocks
  *
+ * WordPress Classic to Blocks Content Mass Converter
+ *
+ * @licence ISC
+ * @author Léo Colombaro
  */
 
-const { registerDatabase } = require('./src/database.js')
-const { registerWordPressAPI } = require('./src/wp-api.js')
-const { registerBlocksHandler } = require('./src/blocks.js')
-
-exports = {
-  registerDatabase,
-  registerWordPressAPI,
-  registerBlocksHandler
-}
+exports.registerDatabase = require('./src/database.js').registerDatabase
+exports.registerWordPressAPI = require('./src/wp-api.js').registerWordPressAPI
+exports.registerBlocksHandler = require('./src/blocks.js').registerBlocksHandler

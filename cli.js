@@ -23,21 +23,28 @@ const {
     ]
   }))
     .run()
-  const { db, query, count } = await registerDatabase(...promptDb)
+  const { db, query, count } = await registerDatabase({
+    host: promptDb.host,
+    database: promptDb.database,
+    user: promptDb.user,
+    password: promptDb.password
+  }, {
+    prefix: promptDb.prefix
+  })
 
   // WP API
   const promptApi = await (new Form({
     name: 'api',
     message: 'WordPress API',
     choices: [
-      { name: 'base', message: 'Base URL', initial: 'https://localhost' },
+      { name: 'baseUrl', message: 'Base URL', initial: 'https://localhost' },
       { name: 'username', message: 'Username' },
       { name: 'password', message: 'Password' },
       { name: 'ip', message: 'IP address' }
     ]
   }))
     .run()
-  const { req } = await registerWordPressAPI(...promptApi)
+  const { req } = await registerWordPressAPI({ ...promptApi, insecure: true })
 
   // Blocks
   const { handler } = await registerBlocksHandler()
@@ -71,5 +78,4 @@ const {
         }
       })
     })
-  return Promise.resolve()
-})()
+})().then(() => {})

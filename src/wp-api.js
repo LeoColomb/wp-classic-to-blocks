@@ -1,11 +1,10 @@
 const got = require('got')
 
-exports.registerWordPressAPI = async ({ baseUrl, username, password, ip = null, insecure = false }) => {
+exports.registerWordPressAPI = async ({ baseUrl, username, password, ip = null, insecure = false, options = {} }) => {
   if (insecure) {
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
   }
 
-  const options = {}
   if (ip) {
     // TODO: improve direct resolution handler
     options.lookup = (hostname, options, callback) => (callback || options)(null, ip, 4)
@@ -20,7 +19,7 @@ exports.registerWordPressAPI = async ({ baseUrl, username, password, ip = null, 
   })
 
   const req = async (postID) => {
-    const response = await api(postID).json()
+    const response = await api(postID.toString()).json()
     return response.body.content.rendered
   }
 

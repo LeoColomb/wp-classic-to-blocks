@@ -2,6 +2,10 @@
 
 ## About
 
+Bulk/Mass convert [Classic Editor](https://wordpress.org/plugins/classic-editor/)
+WordPress post to [Blocks Editor](https://wordpress.org/support/article/wordpress-editor/)
+posts while keeping database sanity.
+
 The goal is to covert thousands of posts with a minimal impact on the database,
 and an under-control impact on the hosting server ressources.
 No additional row will be set, only `post_content` cell for all non-null classic
@@ -25,21 +29,18 @@ important than database sanity), please have a look at the
 
 * Install the [Basic Authentication handler plugin](https://github.com/WP-API/Basic-Auth)
   * See [why in the FAQ](#why-the-basic-auth-plugin-is-required)
-* Download [latest binary](releases/latest)
-  * Docker image is also available
+
+### CLI
+
+* Download runner
+  * Docker image
     ```shell
     docker run ghcr.io/leocolomb/wp-classic-to-blocks
     ```
-  * NPM package is also available
+  * NPM package
     ```shell
     npx wp-classic-to-blocks
     ```
-
-### Run
-
-```shell
-./wp-classic-to-blocks
-```
 
 1. Database information will be asked
   * Host
@@ -52,6 +53,80 @@ important than database sanity), please have a look at the
   * Optional IP address to bypass DNS resolution
   * Optional insecure certificate validation
 3. Precessing confirmation will be asked
+
+### API
+
+#### registerDatabase(connection, options?)
+
+Returns a promise for generating database interface.
+
+##### connection
+
+Type: `Object`
+
+[Database connection information](https://knexjs.org/#Installation-client).
+
+##### options
+
+Type: `Object`
+
+###### prefix
+
+Type: `String`<br>
+Default: `wp_`
+
+Database tables prefix.
+
+#### registerWordPressAPI(options)
+
+Returns a promise for generating WordPress REST-API interface.
+
+##### options
+
+Type: `Object`
+
+###### baseUrl
+
+Type: `String`
+
+Base URL to the WordPress site.
+
+###### username
+
+Type: `String`
+
+Username to connect to the API.
+
+###### password
+
+Type: `String`
+
+Password to connect to the API.
+
+###### ip
+
+Type: `String?`<br>
+Default: `null`
+
+IPv4 address to resolve the domain name provided in the base URL.
+
+###### insecure
+
+Type: `Boolean`<br>
+Default: `false`
+
+Disable certificate validation.
+
+###### options
+
+Type: `Object`<br>
+Default: `{}`
+
+[Additional `got` options](https://github.com/sindresorhus/got#goturl-options).
+
+#### registerBlocksHandler(options)
+
+Returns a promise for generating a classic to block content raw-handler.
 
 ## FAQ
 
@@ -79,6 +154,11 @@ Since [WordPress REST-API](https://developer.wordpress.org/rest-api/) does not
 support authentification ([seriously](https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/)),
 we need to the non-official official authentification public to get rendered
 content.
+
+### Why is this so complicated?
+
+WordPress makes things complicated for developers, sometimes.
+And https://github.com/WordPress/gutenberg/issues/12694.
 
 ## License
 
