@@ -44,5 +44,5 @@ test('blocks', async t => {
   t.true(handler instanceof Function)
 
   // Valid handler
-  t.is(await handler('<p>Test</p>'), "<!-- wp:paragraph -->\n<p>Test</p>\n<!-- /wp:paragraph -->")
+  t.is(await handler('<p>Test</p>'), '<!-- wp:paragraph -->\n<p>Test</p>\n<!-- /wp:paragraph -->')
 })
