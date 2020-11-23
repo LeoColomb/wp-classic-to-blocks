@@ -1,6 +1,4 @@
-# WordPress Classic to Blocks
-
-> WordPress Classic to Blocks Content Mass Converter
+# ![WordPress Classic to Blocks Content Mass Converter](.github/WordPress-Classic-to-Blocks.png)
 
 ## About
 
