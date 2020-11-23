@@ -1,6 +1,6 @@
 const knex = require('knex')
 
-exports.registerDatabase = async (connection, { prefix = 'wp_' }) => {
+exports.registerDatabase = async (connection, prefix = 'wp_') => {
   const db = knex({
     client: 'mysql2',
     connection

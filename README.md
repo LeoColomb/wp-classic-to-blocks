@@ -66,11 +66,7 @@ Type: `Object`
 
 [Database connection information](https://knexjs.org/#Installation-client).
 
-##### options
-
-Type: `Object`
-
-###### prefix
+##### prefix
 
 Type: `String`<br>
 Default: `wp_`

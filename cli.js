@@ -28,9 +28,7 @@ const {
     database: promptDb.database,
     user: promptDb.user,
     password: promptDb.password
-  }, {
-    prefix: promptDb.prefix
-  })
+  }, promptDb.prefix)
 
   // WP API
   const promptApi = await (new Form({
