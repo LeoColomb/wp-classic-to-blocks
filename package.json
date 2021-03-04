@@ -19,7 +19,7 @@
     "browser-env": "^3.3.0",
     "enquirer": "^2.3.6",
     "got": "^11.8.0",
-    "knex": "^0.21.12",
+    "knex": "^0.95.0",
     "mysql2": "^2.2.5",
     "polyfill-library": "^3.97.0",
     "progress": "^2.0.3",
