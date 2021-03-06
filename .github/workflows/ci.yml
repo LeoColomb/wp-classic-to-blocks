@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: [15]
+        node_version: ['15.x']
     steps:
       - uses: actions/checkout@v2.3.4
 
@@ -18,8 +18,15 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
 
+      - name: Cache
+        uses: actions/cache@v2.1.4
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-
+
       - name: Install
-        run: npm install
+        run: npm ci
 
       - name: Lint
         run: npm run lint --if-present
