@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@wordpress/block-library": "^2.26.4",
-    "@wordpress/blocks": "^6.24.1",
+    "@wordpress/blocks": "^8.0.2",
     "ansi-colors": "^4.1.1",
     "browser-env": "^3.3.0",
     "enquirer": "^2.3.6",
