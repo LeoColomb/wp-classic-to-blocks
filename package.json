@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@wordpress/block-library": "^2.26.4",
+    "@wordpress/block-library": "^3.2.1",
     "@wordpress/blocks": "^6.24.1",
     "ansi-colors": "^4.1.1",
     "browser-env": "^3.3.0",
